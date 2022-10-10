@@ -2,6 +2,7 @@ package com.techno.javabasics3.restaurant;
 
 import java.util.Scanner;
 
+
 public class Menu {
 	public static MainMenu getMenu() {
 		Scanner scanner = new Scanner(System.in);
@@ -13,44 +14,54 @@ public class Menu {
 		}
 		System.out.println("enter your item no.");
 		int itemNo = scanner.nextInt();
-
-		System.out.println("enter quantity");
-		int quantity = scanner.nextInt();
-		System.out.println("you selected : " + quantity + " items");
-
-		System.out.println("want to order anything else??");
-		String[] string1 = { "1.YES", "2.NO" };
-
-		for (int j = 0; j < string1.length; j++) {
-			System.out.println(string1[j]);
-		}
-
-		System.out.println("enter your choice ");
-		int ans = scanner.nextInt();
-		int itemNo1 = 0;
-		int quantity1 = 0;
-		int sum = 0;
-		int bill = Total.orderTotal(itemNo, quantity);
-		if (ans == 1) {
-			System.out.println("enter your item no.");
-			itemNo1 = scanner.nextInt();
-
+		if (itemNo>4) {
+			try {
+				throw new InvalidInputException("invalid input");
+			} catch (InvalidInputException e) {
+				System.out.println(e.getMessage());
+			}
+		}else {
 			System.out.println("enter quantity");
+			int quantity = scanner.nextInt();
+			System.out.println("you selected : " + quantity + " items");
 
-			quantity1 = scanner.nextInt();
-			int quantityTotal = quantity + quantity1;
-			System.out.println("you selected : " + quantityTotal + " items");
+			System.out.println("want to order anything else??");
+			String[] string1 = { "1.YES", "2.NO" };
+
+			for (int j = 0; j < string1.length; j++) {
+				System.out.println(string1[j]);
+			}
+
+			System.out.println("enter your choice ");
+			int ans = scanner.nextInt();
+			int itemNo1 = 0;
+			int quantity1 = 0;
+			int sum = 0;
+			int bill = Total.orderTotal(itemNo, quantity);
+			if (ans == 1) {
+				System.out.println("enter your item no.");
+				itemNo1 = scanner.nextInt();
+
+				System.out.println("enter quantity");
+
+				quantity1 = scanner.nextInt();
+				int quantityTotal = quantity + quantity1;
+				System.out.println("you selected : " + quantityTotal + " items");
+			}
+
+			scanner.close();
+			
+			 bill = bill+Total.orderTotal(itemNo1, quantity1);
+			
+		
+			System.out.println("your bill is Rs: " + bill);
+			System.out.println("please wait till your order gets ready..!!");
+
+		
 		}
-
-		scanner.close();
-		
-		 bill = bill+Total.orderTotal(itemNo1, quantity1);
-		
-	
-		System.out.println("your bill is Rs: " + bill);
-		System.out.println("please wait till your order gets ready..!!");
-
 		return null;
+
+		
 
 	}
 
