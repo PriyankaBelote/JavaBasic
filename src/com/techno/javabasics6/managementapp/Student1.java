@@ -1,12 +1,12 @@
 package com.techno.javabasics6.managementapp;
 
 public class Student1 {
-	int studentId;
-	String studentName;
-	String studentDept;
-	int studentAge;
-	Float studentMarks;
-	
+	private int studentId;
+	private String studentName;
+	private String studentDept;
+	private int studentAge;
+	private Float studentMarks;
+
 	public Student1(int studentId, String studentName, String studentDept, int studentAge, float studentMarks) {
 		this.studentId = studentId;
 		this.studentName = studentName;
@@ -14,8 +14,6 @@ public class Student1 {
 		this.studentAge = studentAge;
 		this.studentMarks = studentMarks;
 	}
-	
-	
 
 	@Override
 	public String toString() {
@@ -23,13 +21,11 @@ public class Student1 {
 				+ ", studentAge=" + studentAge + ", studentMarks=" + studentMarks + "]";
 	}
 
-
-
 	public int getStudentId() {
 		return studentId;
 	}
 
-	public String getStudentName() {
+	public String getStudentName() { 
 		return studentName;
 	}
 
@@ -44,5 +40,5 @@ public class Student1 {
 	public Float getStudentMarks() {
 		return studentMarks;
 	}
-	
+
 }

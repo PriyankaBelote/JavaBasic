@@ -2,9 +2,11 @@ package com.techno.javabasics6.managementapp;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.techno.javabasics5.collection.SortById;
 import com.techno.javabasics5.collection.Student;
@@ -41,34 +43,60 @@ public class StudentDetails {
 		if (choice<6) {
 			switch (choice) {
 			case 1:
-				Collections.sort(arrayList, new SortByStudentId());
-				for (Student1 student13 : arrayList) {
-					System.out.println(student13);
-				}
+				Comparator<Student1> comparator=(o1,o2)->{
+					return o1.getStudentId()-o2.getStudentId();
+				};
+				  arrayList.stream().sorted(comparator).collect(Collectors.toList()).forEach(System.out::println);
+				
+				
+				
+//				Collections.sort(arrayList, new SortByStudentId());
+//				for (Student1 student13 : arrayList) {
+//					System.out.println(student13);
+//				}
 				break;
 			case 2:
-				Collections.sort(arrayList, new SortByStudentName());
-				for (Student1 student14 : arrayList) {
-					System.out.println(student14);
-				}
+				Comparator<Student1> comparator1=(o1,o2)->{
+					return o1.getStudentId()-o2.getStudentId();
+				};
+				  arrayList.stream().sorted(comparator1).collect(Collectors.toList()).forEach(System.out::println);
+				
+//				Collections.sort(arrayList, new SortByStudentName());
+//				for (Student1 student14 : arrayList) {
+//					System.out.println(student14);
+//				}
 				break;
 			case 3:
-				Collections.sort(arrayList, new SortByStudentDept());
-				for (Student1 student14 : arrayList) {
-					System.out.println(student14);
-				}
+				
+				Comparator<Student1> comparator2=(o1,o2)->{
+					return o1.getStudentId()-o2.getStudentId();
+				};
+				  arrayList.stream().sorted(comparator2).collect(Collectors.toList()).forEach(System.out::println);
+//				Collections.sort(arrayList, new SortByStudentDept());
+//				for (Student1 student14 : arrayList) {
+//					System.out.println(student14);
+//				}
 				break;
 			case 4:
-				Collections.sort(arrayList, new SortByStudentAge());
-				for (Student1 student14 : arrayList) {
-					System.out.println(student14);
-				}
+				
+				Comparator<Student1> comparator3=(o1,o2)->{
+					return o1.getStudentId()-o2.getStudentId();
+				};
+				  arrayList.stream().sorted(comparator3).collect(Collectors.toList()).forEach(System.out::println);
+//				Collections.sort(arrayList, new SortByStudentAge());
+//				for (Student1 student14 : arrayList) {
+//					System.out.println(student14);
+//				}
 				break;
 			case 5:
-				Collections.sort(arrayList, new SortByStudentMarks());
-				for (Student1 student14 : arrayList) {
-					System.out.println(student14);
-				}
+				Comparator<Student1> comparator4=(o1,o2)->{
+					return o1.getStudentId()-o2.getStudentId();
+				};
+				  arrayList.stream().sorted(comparator4).collect(Collectors.toList()).forEach(System.out::println);
+//				Collections.sort(arrayList, new SortByStudentMarks());
+//				for (Student1 student14 : arrayList) {
+//					System.out.println(student14);
+//				}
 				break;
 			default:
 				break;
